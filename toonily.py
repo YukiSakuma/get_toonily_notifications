@@ -54,7 +54,7 @@ def is_ended(link, num):
     r = requests.get(link, stream=True).text
     result = check_end.search(r)
     if result:
-        print(link)
+        print(f"Manhwa homepage: {link}")
         result = result.group()
         r = result.split()
         num_end = r[1]
