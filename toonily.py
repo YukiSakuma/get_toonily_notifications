@@ -2,10 +2,9 @@
 
 """Get email notifications of latest chapter of a manhwa/manga from toonily.com using ezgmail module"""
 import datetime
+import os
 import requests
 import time
-import os
-
 import ezgmail
 
 path = r"YOUR CLIENTCONFIG DIRECTORY PATH"
