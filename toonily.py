@@ -45,7 +45,7 @@ def check_valid(link):
     if check_status.ok:
         return
     else:
-        raise ValidManhwa(f"Not valid manhwa/manga, make sure the manhwa url is properly typed\n"
+        raise ValidManhwa(f"Not valid manhwa/manga link, make sure the manhwa url is valid\n"
                           f" or is uploaded in toonily! "
                           f"{link}")
 
