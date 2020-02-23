@@ -28,6 +28,7 @@ Run the script like this
 	python toonily.py --manhwa "MANGA/MANHWA name" --chapter "chapter number" --email "your email address that receives the notification"
 	
 Example
+
 	python toonily.py --manhwa "peerless dad" --chapter 100 --email "example@gmail.com"
 
 	
