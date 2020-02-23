@@ -17,9 +17,9 @@ https://github.com/asweigart/ezgmail
 
 After you are done copy the directory path where your CLIENT CONFIGURATION files (credentials.json, token.json) are located to the toonily.py at line 11
 
-	line 11 - path = "YOUR CLIENTCONFIG DIRECTORY PATH"
+	line 10 - path = "YOUR CLIENTCONFIG DIRECTORY PATH"
 	
-	line 12 - os.chdir(path)
+	line 11 - os.chdir(path)
 	
 # Run script
 
