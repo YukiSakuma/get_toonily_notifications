@@ -81,7 +81,7 @@ if __name__ == '__main__':
     parser.add_argument("-c", "--chapter", required=True, help="enter the chapter number")
     parser.add_argument("-e", "--email", required=True, help="enter the email to send notifications")
     args = vars(parser.parse_args())
-    manga = args['manhwa']
+    manhwa_link = args['manhwa']
     num = args['chapter']
     chapter = "Chapter " + num
     my_email = args['email']
@@ -90,9 +90,8 @@ if __name__ == '__main__':
     # num = "100"
     # chapter = "Chapter " + num
     # my_email = "example@gmail.com"
-    # manhwa_name = manhwa_link.split("/")[-2]
-    # manhwa_name = " ".join(manhwa_name.split('-')).title()
-
+    manhwa_name = manhwa_link.split("/")[-2]
+    manhwa_name = " ".join(manhwa_name.split('-')).title()
     # check if valid manhwa name or/and uploaded to toonily
     check_valid(manhwa_link)
     # else check if manhwa already ended
