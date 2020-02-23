@@ -28,7 +28,7 @@ def main(chapter, link):
         return False
 
 
-def send_email(my_email,subject,body):
+def send_email(my_email, subject, body):
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
         try:
