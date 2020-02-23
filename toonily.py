@@ -8,7 +8,7 @@ import os
 
 import ezgmail
 
-path = r"J:\clientconfig"
+path = r"YOUR CLIENTCONFIG DIRECTORY PATH"
 os.chdir(path)
 
 
