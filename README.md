@@ -15,11 +15,11 @@ Get latest manhwa chapter email notifications from toonily.com using ezgmail, co
 Follow the instructions in installing and setting up ezgmail from here:
 https://github.com/asweigart/ezgmail
 
-After you are done copy the directory path where your CLIENT CONFIGURATION files (credentials.json, token.json) are located to toonily.py at line 9
+After you are done copy the directory path where your CLIENT CONFIGURATION files (credentials.json, token.json) are located to toonily.py at line 75
 
-	line 9  - path = "YOUR CLIENTCONFIG DIRECTORY PATH"
+	line 75 - path = "YOUR CLIENTCONFIG DIRECTORY PATH"
 	
-	line 10 - os.chdir(path)
+	line 76 - os.chdir(path)
 	
 # Run script
 
