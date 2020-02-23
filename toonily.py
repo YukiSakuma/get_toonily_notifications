@@ -6,9 +6,6 @@ import requests
 import time
 import ezgmail
 
-path = r"YOUR CLIENTCONFIG DIRECTORY PATH"
-os.chdir(path)
-
 
 class EndedManhwa(Exception):
     pass
@@ -75,7 +72,8 @@ def is_ended(link, num):
 
 if __name__ == '__main__':
     import argparse
-
+    path = r"YOUR CLIENTCONFIG DIRECTORY PATH"
+    os.chdir(path)
     parser = argparse.ArgumentParser()
     parser.add_argument("-m", "--manhwa", required=True, help="enter the link of the manga/manhwa")
     parser.add_argument("-c", "--chapter", required=True, help="enter the chapter number")
@@ -113,7 +111,7 @@ if __name__ == '__main__':
             print(f"{manhwa_name} {chapter} is NOT updated yet {dt}")
         else:
             print(f"{ans} date {dt}")
-        print("-" * 100)
+        print("-" * 75)
         time.sleep(300)
 
 
