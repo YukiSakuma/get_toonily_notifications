@@ -114,7 +114,7 @@ if __name__ == '__main__':
             print(f"{manga.title()} {chapter} is NOT updated yet {dt}")
         else:
             print(f"{ans} date {dt}")
-        print("-"*100)
+        print("-" * 100)
         time.sleep(300)
 
 
