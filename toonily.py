@@ -1,5 +1,3 @@
-
-
 """Get email notifications of latest chapter of a manhwa/manga from toonily.com using ezgmail module"""
 import datetime
 import os
@@ -20,7 +18,7 @@ class ValidManhwa(Exception):
     pass
 
 
-def main(chapter, link):
+def main(link, chapter):
     try:
         r = requests.get(link, stream=True)
     except:
@@ -37,7 +35,7 @@ def send_email(my_email, subject, body):
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
         try:
-            ezgmail.send(my_email,subject,body)
+            ezgmail.send(my_email, subject, body)
             print(f'Success sending email {dt}')
             return
         except:
@@ -50,9 +48,8 @@ def check_valid(link):
     if check_status.ok:
         return
     else:
-        raise ValidManhwa(f"Not valid manhwa/manga, make sure the manhwa name is properly typed\n"
-                          f" or is uploaded in toonily! If it's 'ripped' run the script again and add 'english' "
-                          f"at the end of the manwha name\n or go toonily first find it and check its url title \n"
+        raise ValidManhwa(f"Not valid manhwa/manga, make sure the manhwa url is properly typed\n"
+                          f" or is uploaded in toonily!"
                           f"{link}")
 
 
@@ -66,20 +63,21 @@ def is_ended(link, num):
         r = result.split()
         num_end = r[1]
         if int(num) <= int(num_end):
-            ch_link = f"{link}/chapter-{num}"
+            ch_link = f"{link}chapter-{num}"
             print("Click or copy link below if you want to go to the chapter number you entered")
             print(ch_link)
         else:
             print(f"Invalid chapter {num}")
-        link = f"{link}/chapter-{num_end}"
+        link = f"{link}chapter-{num_end}"
         raise EndedManhwa(f"Manhwa supposedly ended at chapter {num_end}, link: {link}")
     return
+
 
 if __name__ == '__main__':
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-m", "--manhwa", required=True, help="enter the name of the manga/manhwa")
+    parser.add_argument("-m", "--manhwa", required=True, help="enter the link of the manga/manhwa")
     parser.add_argument("-c", "--chapter", required=True, help="enter the chapter number")
     parser.add_argument("-e", "--email", required=True, help="enter the email to send notifications")
     args = vars(parser.parse_args())
@@ -87,31 +85,33 @@ if __name__ == '__main__':
     num = args['chapter']
     chapter = "Chapter " + num
     my_email = args['email']
-    # manga = "peerless dad"          #uncomment if you don't want to use argparse and edit it directly
-    # num = "100"                     #uncomment if you don't want to use argparse and edit it directly
-    # chapter = "Chapter " + num      #uncomment if you don't want to use argparse and edit it directly
-    # my_email = "example@gmail.com"  #uncomment if you don't want to use argparse and edit it directly
-    link = f"https://toonily.com/webtoon/{'-'.join(manga.lower().split())}"
+    # uncomment the block below if you don't want to use argparse and instead want to edit it directly
+    # manhwa_link = "https://toonily.com/webtoon/peerless-dad/"
+    # num = "100"
+    # chapter = "Chapter " + num
+    # my_email = "example@gmail.com"
+    # manhwa_name = manhwa_link.split("/")[-2]
+    # manhwa_name = " ".join(manhwa_name.split('-')).title()
 
     # check if valid manhwa name or/and uploaded to toonily
-    check_valid(link)
+    check_valid(manhwa_link)
     # else check if manhwa already ended
-    is_ended(link, num)
+    is_ended(manhwa_link, num)
     # else continue
-    ch_link = f"{link}/chapter-{num}/"
+    ch_link = f"{manhwa_link}chapter-{num}/"
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
-        ans = main(chapter, link)
-        is_ended(link, num) # check if it already ended periodically
+        ans = main(manhwa_link, chapter)
+        is_ended(manhwa_link, num)  # check if it already ended periodically
         if ans is True:
-            subject = f"{manga} {chapter}"
-            body = f"{manga} {chapter} is updated {dt}, link: {ch_link}"
+            subject = f"{manhwa_name} {chapter}"
+            body = f"{manhwa_name} {chapter} is updated {dt}, link: {ch_link}"
             print(body)
             print(ch_link)
             send_email(my_email, subject, body)
             break
         elif ans is False:
-            print(f"{manga.title()} {chapter} is NOT updated yet {dt}")
+            print(f"{manhwa_name} {chapter} is NOT updated yet {dt}")
         else:
             print(f"{ans} date {dt}")
         print("-" * 100)
