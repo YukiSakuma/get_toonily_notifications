@@ -57,7 +57,7 @@ if __name__ == '__main__':
     chapter = "Chapter " + num
     my_email = args['email']
     link = f"https://toonily.com/webtoon/{'-'.join(manga.lower().split())}"
-    check = requests.get(link, stream=True); print(check.ok)
+    check = requests.get(link, stream=True)
     if not check.ok:
         raise ValidManhwa(f"Not valid manhwa/manga, it doesn't exist, make sure the manhwa name is properly typed"
                           f" and/or is uploaded in toonily! {link}")
