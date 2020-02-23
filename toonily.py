@@ -98,7 +98,6 @@ if __name__ == '__main__':
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
         ans = main(manhwa_link, chapter)
-        is_ended(manhwa_link, num)  # check if it already ended periodically
         if ans is True:
             subject = f"{manhwa_name} {chapter}"
             body = f"{manhwa_name} {chapter} is updated {dt}, link: {ch_link}"
@@ -112,5 +111,6 @@ if __name__ == '__main__':
             print(f"{ans} date {dt}")
         print("-" * 75)
         time.sleep(300)
+        is_ended(manhwa_link, num)  # check if it already ended periodically
 
 
