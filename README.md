@@ -15,7 +15,7 @@ Get latest manhwa chapter email notifications from toonily.com using ezgmail, co
 Follow the instructions in installing and setting up ezgmail from here:
 https://github.com/asweigart/ezgmail
 
-After you are done copy the directory path where your CLIENT CONFIGURATION files (credentials.json, token.json) are located to toonily.py at this line
+After you are done copy the directory path where your CLIENT CONFIGURATION files (credentials.json, token.json) are located to toonily.py at this line:
 
 	path = "YOUR CLIENTCONFIG DIRECTORY PATH"
 	
@@ -23,11 +23,11 @@ After you are done copy the directory path where your CLIENT CONFIGURATION files
 	
 # Run script
 
-Run the script like this
+Run the script like this:
 
 	python toonily.py --manhwa "MANGA/MANHWA link" --chapter "chapter number" --email "your email address that receives the notification"
 	
-Example
+Example:
 
 	python toonily.py --manhwa "https://toonily.com/webtoon/peerless-dad/" --chapter 100 --email "example@gmail.com"
 
