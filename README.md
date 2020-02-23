@@ -19,7 +19,7 @@ After you are done copy the directory path where your CLIENT CONFIGURATION files
 
 	line 11 - path = "YOUR CLIENTCONFIG DIRECTORY PATH"
 	
-	line 12 - path = os.chdir(path)
+	line 12 - os.chdir(path)
 	
 # Run script
 
