@@ -2,7 +2,7 @@
 
 
 
-Get latest manhwa chapter email notifications from toonily.com using ezgmail, could possibly work on other manga/manwha sites but some of those sites uses cloudfare protection and must use cfscrape module to get past that.
+Get latest manhwa chapter email notifications from https://toonily.com using ezgmail module, could possibly work on other manga/manwha sites but some of those sites uses cloudfare protection and must use cfscrape module to get past that.
 # Requirements
 * Python >= 3.6
 
