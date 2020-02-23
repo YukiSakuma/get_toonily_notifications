@@ -48,9 +48,10 @@ if __name__ == '__main__':
     parser.add_argument("-c", "--chapter", required=True, help="enter the chapter number")
     parser.add_argument("-e", "--email", required=True, help="enter the email to send notifications")
     args = vars(parser.parse_args())
-    # manga = "peerless dad"
-    # num = "69"
-    # chapter = "Chapter " + num
+    # manga = "peerless dad"          #uncomment if you don't want to use argparse and edit it directly
+    # num = "69"                      #uncomment if you don't want to use argparse and edit it directly
+    # chapter = "Chapter " + num      #uncomment if you don't want to use argparse and edit it directly
+    # my_email = "example@gmail.com"  #uncomment if you don't want to use argparse and edit it directly
     manga = args['manhwa']
     num = args['chapter']
     chapter = "Chapter " + num
@@ -59,7 +60,7 @@ if __name__ == '__main__':
     check = requests.get(link, stream=True); print(check.ok)
     if not check.ok:
         raise ValidManhwa(f"Not valid manhwa/manga, it doesn't exist, make sure the manhwa name is properly typed"
-                          f" or is uploaded in toonily! {link}")
+                          f" and/or is uploaded in toonily! {link}")
     ch_link = f"{link}/chapter-{num}/"
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
