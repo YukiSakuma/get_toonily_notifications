@@ -25,11 +25,11 @@ After you are done copy the directory path where your CLIENT CONFIGURATION files
 
 Run the script like this
 
-	python toonily.py --manhwa "MANGA/MANHWA name" --chapter "chapter number" --email "your email address that receives the notification"
+	python toonily.py --manhwa "MANGA/MANHWA link" --chapter "chapter number" --email "your email address that receives the notification"
 	
 Example
 
-	python toonily.py --manhwa "peerless dad" --chapter 100 --email "example@gmail.com"
+	python toonily.py --manhwa "https://toonily.com/webtoon/peerless-dad/" --chapter 100 --email "example@gmail.com"
 
 	
 
