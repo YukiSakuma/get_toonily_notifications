@@ -37,4 +37,4 @@ Be sure the manga/manhwa name is properly typed else the script won't work
 
 The script will periodically check for the latest chapter that was inputted every 300 secs (5 minutes) and if it's updated it will send an email notification with the chapter link in it
 
-You can change how long it must wait before checking again by changing time.sleep argument at line 117
+You can change how long it must wait before checking again by changing the time.sleep argument at line 117
