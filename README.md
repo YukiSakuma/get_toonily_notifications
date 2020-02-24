@@ -8,6 +8,8 @@ Get latest manhwa chapter email notifications from https://toonily.com using ezg
 
 * ezgmail
 
+* pyperclip
+
 * A gmail account to send notifications
 
 * An email account to receive manhwa chapter notifications from the gmail account
