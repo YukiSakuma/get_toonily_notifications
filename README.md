@@ -40,3 +40,5 @@ Be sure the manga/manhwa name is properly typed else the script won't work.
 The script will periodically check for the latest chapter that was inputted every 300 secs (5 minutes) and if it's updated it will send an email notification with the chapter link in it.
 
 You can change how long it must wait before checking again by changing the time.sleep argument.
+
+Be sure to periodically check the script output from console or from IDE, it might raise the is_ended function that says the manhwa already ended and if the chapter you entered is less than or equal to last chapter of the manhwa it will automatically copy the chapter link using copy method of pyperclip
