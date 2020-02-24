@@ -5,6 +5,7 @@ import re
 import requests
 import time
 import ezgmail
+import pyperclip
 
 
 class EndedManhwa(Exception):
@@ -54,14 +55,15 @@ def is_ended(link, num):
     r = requests.get(link, stream=True).text
     result = check_end.search(r)
     if result:
-        print(f"Manhwa homepage: {link}")
+        print(f"Manhwa homepage: {link}\n")
         result = result.group()
         r = result.split()
         num_end = r[1]
         if int(num) <= int(num_end):
             ch_link = f"{link}chapter-{num}"
-            print("Click or copy link below if you want to go to the chapter number you entered")
+            print("The link of the chapter number you entered below is copied\n")
             print(ch_link)
+            pyperclip.copy(ch_link)
         else:
             print(f"Invalid chapter {num}")
         link = f"{link}chapter-{num_end}"
