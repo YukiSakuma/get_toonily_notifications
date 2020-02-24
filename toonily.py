@@ -64,14 +64,14 @@ def is_ended(link, num):
             ch_link = f"{link}chapter-{num}"
             print("The link of the chapter number you entered below is copied\n")
             print(ch_link)
-            ctypes.windll.user32.MessageBoxW(0, f"{ch_link} \nClose this window to finish complete copying the link", 
+            ctypes.windll.user32.MessageBoxW(0, f"{ch_link}\nClose this window to finish copying the link",
                                              f"Copying Chapter {num}", 0)
             pyperclip.copy(ch_link)
         else:
             print(f"Invalid chapter {num}")
             link = f"{link}chapter-{num_end}"
             ctypes.windll.user32.MessageBoxW(0, f"Invalid chapter {num}, manhwa already ended at chapter {num_end}\n"
-                                                f"{link} \nClose this window to finish complete copying the link",
+                                                f"{link}\nClose this window to finish copying the link",
                                                 f"Copying Chapter {num_end}", 0)
             pyperclip.copy(link)
         raise EndedManhwa(f"Manhwa supposedly ended at chapter {num_end}, link: {link}")
