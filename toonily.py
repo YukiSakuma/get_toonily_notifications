@@ -53,7 +53,10 @@ def check_valid(link):
 
 def is_ended(link, num):
     check_end = re.compile(r"Chapter \d* - The End")
-    r = requests.get(link, stream=True).text
+    try:
+        r = requests.get(link, stream=True).text
+    except:
+        return
     result = check_end.search(r)
     if result:
         print(f"Manhwa homepage: {link}\n")
@@ -121,5 +124,6 @@ if __name__ == '__main__':
         print("-" * 75)
         time.sleep(300)
         is_ended(manhwa_link, num)  # check if it already ended periodically
+        time.sleep(5) # add a little delay for sanity check
 
 
