@@ -1,4 +1,5 @@
 """Get email notifications of latest chapter of a manhwa/manga from toonily.com using ezgmail module"""
+import ctypes
 import datetime
 import os
 import re
@@ -63,6 +64,7 @@ def is_ended(link, num):
             ch_link = f"{link}chapter-{num}"
             print("The link of the chapter number you entered below is copied\n")
             print(ch_link)
+            ctypes.windll.user32.MessageBoxW(0, f"{ch_link}", f"Chapter {num} copied", 0)
             pyperclip.copy(ch_link)
         else:
             print(f"Invalid chapter {num}")
