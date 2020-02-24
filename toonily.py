@@ -114,7 +114,6 @@ if __name__ == '__main__':
             subject = f"{manhwa_name} {chapter}"
             body = f"{manhwa_name} {chapter} is updated {dt}, link: {ch_link}"
             print(body)
-            print(ch_link)
             send_email(my_email, subject, body)
             break
         elif ans is False:
