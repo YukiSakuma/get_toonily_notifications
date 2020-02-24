@@ -22,6 +22,10 @@ After you are done copy the directory path where your CLIENT CONFIGURATION files
 	path = "YOUR CLIENTCONFIG DIRECTORY PATH"
 	
 	os.chdir(path)
+
+Pyperclip
+	pip install pyperclip 
+	conda install -c conda-forge pyperclip (if using Anaconda)
 	
 # Run script
 
@@ -41,4 +45,4 @@ The script will periodically check for the latest chapter that was inputted ever
 
 You can change how long it must wait before checking again by changing the time.sleep argument.
 
-If the manhwa already ended, it will raise the **EndedManhwa** exception that says the manhwa already ended and if the chapter you entered is less than or equal to last chapter of the manhwa it will automatically copy the chapter link using copy method of **pyperclip** and it will popup a window box that says it copied the chapter link.
+If the manhwa already ended, it will raise the **EndedManhwa** exception that says the manhwa already ended and if the chapter you entered is less than or equal to last chapter of the ended manhwa it will popup a window message saying it will copy the chapter link and after closing the window message the chapter link is copied using **pyperclip**.
