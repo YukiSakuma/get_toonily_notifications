@@ -12,7 +12,7 @@ Get latest manhwa chapter email notifications from https://toonily.com using ezg
 
 * A gmail account to send notifications
 
-* An email account to receive manhwa chapter notifications from the gmail account
+* An email account to receive manhwa chapter notifications from the gmail account (or just use the same gmail account to email yourself)
 # Instructions
 Follow the instructions in installing and setting up **ezgmail** from here:
 https://github.com/asweigart/ezgmail
