@@ -110,13 +110,13 @@ if __name__ == '__main__':
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
         ans = main(manhwa_link, chapter)
-        if ans:
+        if ans is True:
             subject = f"{manhwa_name} {chapter}"
             body = f"{manhwa_name} {chapter} is updated {dt}, link: {ch_link}"
             print(body)
             send_email(my_email, subject, body)
             break
-        elif not ans:
+        elif ans is False:
             print(f"{manhwa_name} {chapter} is NOT updated yet {dt}")
         else:
             print(f"{ans} date {dt}")
