@@ -22,11 +22,15 @@ def main(link, chapter):
         r = requests.get(link, stream=True)
     except:
         return "Error trying again in 300 sec"
-
-    if chapter in r.text:
-        # print(r.text)
-        return True
-    else:
+    
+    
+    try:
+        if chapter in r.text:
+            # print(r.text)
+            return True
+        else:
+            return False
+    except:
         return False
 
 
