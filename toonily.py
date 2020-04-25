@@ -10,14 +10,17 @@ import pyperclip
 
 
 class EndedManhwa(Exception):
+    "Manhwa ended already exception"
     pass
 
 
 class ValidManhwa(Exception):
+    """Manhwa is not valid exception"""
     pass
 
 
 def main(link, chapter):
+    """Main link chapter check"""
     try:
         r = requests.get(link, stream=True)
     except:
@@ -35,6 +38,7 @@ def main(link, chapter):
 
 
 def send_email(my_email, subject, body):
+    """send email notification"""
     while 1:
         dt = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
         try:
@@ -47,6 +51,7 @@ def send_email(my_email, subject, body):
 
 
 def check_valid(link):
+    """check if manhwa is valid on toonily site"""
     check_status = requests.get(link, stream=True)
     if check_status.ok:
         return
@@ -56,6 +61,7 @@ def check_valid(link):
 
 
 def is_ended(link, num):
+    """check if manwha already ended"""
     check_end = re.compile(r"Chapter \d* - The End")
     try:
         r = requests.get(link, stream=True).text
