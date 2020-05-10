@@ -122,7 +122,7 @@ if __name__ == '__main__':
     CH_LINK = f"{MANWHA_LINK}chapter-{NUM}/"
     while 1:
         DT = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
-        ANS = main(MANWHA_LINK, CHAPTER)
+        ANS = main(CH_LINK, CHAPTER)
         if ANS is True:
             SUBJECT = f"{MANHWA_NAME} {CHAPTER}"
             BODY = f"{MANHWA_NAME} {CHAPTER} is updated {DT}, link: {CH_LINK}"
