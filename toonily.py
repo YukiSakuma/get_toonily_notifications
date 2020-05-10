@@ -117,9 +117,9 @@ if __name__ == '__main__':
     # check if valid manhwa name or/and uploaded to toonily
     check_valid(MANWHA_LINK)
     # else check if manhwa already ended
-    is_ended(MANWHA_LINK, NUM)
-    # else continue
     CH_LINK = f"{MANWHA_LINK}chapter-{NUM}/"
+    is_ended(CH_LINK, NUM)
+    # else continue
     while 1:
         DT = datetime.datetime.now().strftime("%b-%d-%Y %I:%M:%S %p")
         ANS = main(CH_LINK, CHAPTER)
@@ -127,6 +127,7 @@ if __name__ == '__main__':
             SUBJECT = f"{MANHWA_NAME} {CHAPTER}"
             BODY = f"{MANHWA_NAME} {CHAPTER} is updated {DT}, link: {CH_LINK}"
             print(BODY)
+            is_ended(CH_LINK, NUM)  # check if it already ended
             send_email(my_email=MY_EMAIL, subject=SUBJECT, body=BODY)
             break
         elif ANS is False:
@@ -135,5 +136,4 @@ if __name__ == '__main__':
             print(f"{ANS} date {DT}")
         print("-" * 75)
         time.sleep(300)
-        is_ended(MANWHA_LINK, NUM)  # check if it already ended periodically
-        time.sleep(5) # add a little delay for sanity check
+
